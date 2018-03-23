@@ -8,7 +8,7 @@
 _This is an Epicodus practice project for week 2 of the JavaScript course. Its purpose is to demonstrate understanding of API and a separation of business and UI logic._
 
 #### _Summary_
-*
+* Users can search for physicians based on their medical need or the physician's name. The site is connected to a BetterDoctor API.
 
 ### Known Bugs
 *  Experiencing issues with backend logic.
