@@ -1,5 +1,10 @@
-import {} from './../js/doctor.js';
+import $ from 'jquery';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { DoctorSearch } from './../js/doctor.js';
 // import './styles.css';
+import '../.env';
+
+const showResults = response => {}
 
 $(document).ready(function() {
 

@@ -8,16 +8,21 @@
     <div class=jumbotron>
       <h1>Doctor Database</h1>
     </div>
-    <h2>Search for doctors in your area</h2>
+    <h2>Find a doctor near you.</h2>
     <form>
       <div>
-        <label for="doctor">Enter Name:</label>
-        <input type="my-search" id="doctor" name=""
-        placeholder="Name" size="50" required>
+        <label for="symptoms">Enter medical issue</label>
+        <input type="symptoms" id="symptoms" name=""
+        placeholder="symptoms" size="50" required>
+        <br>
+        <label for="doctor">Search for a doctor by name</label>
+        <input type="doctor" id="doctor" name=""
+        placeholder="doctor" size="50" required>
+        <br>
         <button class="button" id="search">Search</button>
       </div>
     </form>
-    <div class = "showDoctor"></div>
+    <div class = "showDoctors"></div>
     <div class = "showErrors"></div>
   </body>
 </html>
