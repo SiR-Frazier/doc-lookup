@@ -1,6 +1,6 @@
 # Doctor Lookup
 
-#### 3/23/2018.
+#### 3/23/2018
 
 #### _By Bryce Frazier_
 

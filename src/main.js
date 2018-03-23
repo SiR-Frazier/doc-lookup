@@ -1,6 +1,7 @@
 import $ from 'jquery';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { DoctorSearch } from './../js/doctor.js';
+import 'bootstrap'
+import { DoctorSearch } from './../doctor.js';
 import './styles.css';
 import '../.env';
 
@@ -13,7 +14,7 @@ $(document).ready(function() {
     event.preventDefault();
     $('.showDoctors').empty()
     let doctor = $('#doctor').val();
-
+    $('#showDoctors').text(`Here's a list of doctors near you:`)
   });
 
 });

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans+Condensed" rel="stylesheet">
     <script src="http://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <title>Doctor Database</title>
   </head>
@@ -8,18 +9,25 @@
     <div class=jumbotron>
       <h1>Doctor Database</h1>
     </div>
-    <h2>Find a doctor near you.</h2>
+    <h2>Search for a doctor</h2>
     <form>
       <div>
-        <label for="issue">Enter medical issue</label>
-        <input type="issue" id="issue" name=""
-        placeholder="issue" size="50" required>
-        <br>
-        <label for="doctor">Search for a doctor by name</label>
+        <label for="doctor">Enter Doctor's Name:</label>
         <input type="doctor" id="doctor" name=""
-        placeholder="doctor" size="50" required>
+         size="50" required>
         <br>
-        <button class="button" id="search">Search</button>
+        <button class="button btn-primary" id="search">Search</button>
+      </div>
+    </form>
+    <br>
+    <h2>Search for a doctor based on your medical issue</h2>
+    <form>
+      <div>
+        <label for="issue">Enter your medical issue: </label>
+        <input type="issue" id="issue" name=""
+         size="50" required>
+        <br>
+        <button class="button btn-primary" id="search">Search</button>
       </div>
     </form>
     <ul class = "showDoctors"></ul>
