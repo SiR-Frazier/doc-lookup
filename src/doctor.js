@@ -1,8 +1,8 @@
 import $ from 'jquery';
 export class DoctorSearch {
 
-  constructor(medicalIssue, doctor, location) {
-    this.medicalIssue = medicalIssue;
+  constructor(issue, doctor) {
+    this.issue = issue;
     this.doctor = doctor;
     this.location = or-portland; //necessary?//
   }

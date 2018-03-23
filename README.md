@@ -1,6 +1,6 @@
 # Doctor Lookup
 
-#### 3/23/2018
+#### Application that allows users to search for physicians in their area based on the area and medical issue. 3/23/2018
 
 #### _By Bryce Frazier_
 
@@ -11,7 +11,7 @@ _This is an Epicodus practice project for week 2 of the JavaScript course. Its p
 *
 
 ### Known Bugs
-*  
+*  Experiencing issues with backend logic.
 
 
 ## Setup/Installation Requirements

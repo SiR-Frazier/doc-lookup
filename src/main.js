@@ -15,6 +15,15 @@ $(document).ready(function() {
     $('.showDoctors').empty()
     let doctor = $('#doctor').val();
     $('#showDoctors').text(`Here's a list of doctors near you:`)
+    DoctorSearch.prototype.findDoctor(issue,doctor)
+  });
+
+  $('#search').click(function() {
+    event.preventDefault();
+    $('.showDoctors').empty()
+    let issue = $('#issue').val();
+    $('#showDoctors').text(`Here's a list of doctors near you:`)
+    DoctorSearch.prototype.findDoctor(issue,doctor)
   });
 
 });
