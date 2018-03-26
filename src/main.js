@@ -1,9 +1,10 @@
 import $ from 'jquery';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap'
-import { DoctorSearch } from './../doctor.js';
+import DoctorSearch from './doctor.js';
+
 import './styles.css';
-import '../.env';
+
 
 const showResults = response => {
   // results:
@@ -15,7 +16,7 @@ const showResults = response => {
 }
 
 $(document).ready(function() {
-  let doctorSearch = new DoctorSearch();
+  const doctorSearch = new DoctorSearch();
 
   $('#search').click(function() {
     event.preventDefault();
@@ -23,14 +24,15 @@ $(document).ready(function() {
     let doctor = $('#doctor').val();
     $('#showDoctors').text(`Here's a list of doctors near you:`)
     DoctorSearch.prototype.findDoctor(doctor)
+
   });
 
-  $('#search').click(function() {
-    event.preventDefault();
-    $('.showDoctors').empty();
-    let issue = $('#issue').val();
-    $('#showDoctors').text(`Here's a list of doctors:`)
-    DoctorSearch.prototype.showSpecialist(issue)
-  });
+  // $('#search').click(function() {
+  //   event.preventDefault();
+  //   $('.showDoctors').empty();
+  //   let issue = $('#issue').val();
+  //   $('#showDoctors').text(`Here's a list of doctors:`)
+  //   DoctorSearch.prototype.showSpecialist(issue)
+  // });
 
 });
