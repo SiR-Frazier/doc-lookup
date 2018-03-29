@@ -24,8 +24,8 @@ export default class DoctorSearch {
 
 findDoctor(doctor) {
     let docInfo = [];
-    $.get(`https://api.betterdoctor.com/2016-03-01/doctors?name=${doctor}&location=or-portland&user_location=37.773%2C-122.413&skip=0&limit=10&user_key=${apiKey}`).then(resp => {
-      console.log(resp);
+    $.get(`https://api.betterdoctor.com/2016-03-01/doctors?name=${doctor}&location=or-portland&skip=0&limit=10&user_key=${apiKey}`).then(resp => {
+      console.log(docInfo);
       resp.data.forEach(function(doctor) {
         docInfo.push([doctor.profile.first_name]);
         docInfo.push([doctor.profile.last_name]);
@@ -33,9 +33,8 @@ findDoctor(doctor) {
         docInfo.push([doctor.practices.accepts_new_patients]);
         docInfo.push([doctor.practices.visit_address]);
         docInfo.push([doctor.specialties.uid]);
-
       });
-    return docInfo;
+      return docInfo;
       })
       .fail(() => alert('Unfortunately, there was an error. Please try again shortly.'))
   }
@@ -43,8 +42,12 @@ findDoctor(doctor) {
   // showSpecialist(issue) {
   //   let docInfo = [];
   //   $.get(`https://api.betterdoctor.com/2016-03-01/doctors?query=${issue}&location=or-portland&user_location=37.773%2C-122.413&skip=0&limit=10&user_key=${apiKey}`).then(resp => {  resp.data.forEach(function(doctor) {
-  //     docInfo.push([data.profile.first_name]);
-  //     docInfo.push([data.profile.last_name]);
+  //     docInfo.push([doctor.profile.first_name]);
+  //     docInfo.push([doctor.profile.last_name]);
+  //     docInfo.push([doctor.phones.number]);
+  //     docInfo.push([doctor.practices.accepts_new_patients]);
+  //     docInfo.push([doctor.practices.visit_address]);
+  //     docInfo.push([doctor.specialties.uid])
   //   });
   //   return docInfo;
   //   })
