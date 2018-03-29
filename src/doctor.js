@@ -1,6 +1,6 @@
 import $ from 'jquery';
-const apiKey = process.env.exports.apiKey;
-// const apiKey = "9bdb5b28a2e985c4ad2c1017ac5e8887"
+// const apiKey = process.env.apiKey;
+const apiKey = "9bdb5b28a2e985c4ad2c1017ac5e8887"
 // const parseDoc = (docInfo) => {
 //   return `
 //     <li>
@@ -27,8 +27,8 @@ findDoctor(doctor) {
     $.get(`https://api.betterdoctor.com/2016-03-01/doctors?name=${doctor}&location=or-portland&user_location=37.773%2C-122.413&skip=0&limit=10&user_key=${apiKey}`).then(resp => {
       console.log(resp);
       resp.data.forEach(function(doctor) {
-        docInfo.push([data.profile.first_name]);
-        docInfo.push([data.profile.last_name]);
+        docInfo.push([doctor.profile.first_name]);
+        docInfo.push([doctor.profile.last_name]);
       });
     return docInfo;
       })

@@ -5,6 +5,8 @@ import DoctorSearch from './doctor.js';
 
 import './styles.css';
 
+
+
 $(document).ready(function() {
   const doctorSearch = new DoctorSearch();
 
@@ -14,6 +16,7 @@ $(document).ready(function() {
     let doctor = $('#doctor').val();
     $('#showDoctors').text(`Here's a list of doctors near you:`)
     DoctorSearch.prototype.findDoctor(doctor)
+    console.log(doctor);
 
   });
 
