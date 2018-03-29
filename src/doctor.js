@@ -29,12 +29,17 @@ findDoctor(doctor) {
       resp.data.forEach(function(doctor) {
         docInfo.push([doctor.profile.first_name]);
         docInfo.push([doctor.profile.last_name]);
+        docInfo.push([doctor.phones.number]);
+        docInfo.push([doctor.practices.accepts_new_patients]);
+        docInfo.push([doctor.practices.visit_address]);
+        docInfo.push([doctor.specialties.uid]);
+
       });
     return docInfo;
       })
       .fail(() => alert('Unfortunately, there was an error. Please try again shortly.'))
   }
-  //**LOOK TO ADD APPEND instead of push. using hardcode for API for now.
+  //**LOOK TO ADD APPEND instead of push. using hardcode for AP
   // showSpecialist(issue) {
   //   let docInfo = [];
   //   $.get(`https://api.betterdoctor.com/2016-03-01/doctors?query=${issue}&location=or-portland&user_location=37.773%2C-122.413&skip=0&limit=10&user_key=${apiKey}`).then(resp => {  resp.data.forEach(function(doctor) {
