@@ -14,7 +14,7 @@ $(document).ready(function() {
     let doctor = $('#doctor').val();
     $('#showDoctors').text(`Here's a list of doctors near you:`)
     DoctorSearch.prototype.findDoctor(doctor)
-  
+
   });
 
   // $('#search').click(function() {
