@@ -1,5 +1,4 @@
 import $ from 'jquery';
-// const apiKey = process.env.apiKey;
 const apiKey = "9bdb5b28a2e985c4ad2c1017ac5e8887"
 // const parseDoc = (docInfo) => {
 //   return `
@@ -23,16 +22,23 @@ export default class DoctorSearch {
   }
 
 findDoctor(doctor) {
-    let docInfo = [];
+    // let apiKey = process.env.apiKey;
+    const docInfo = [];
     $.get(`https://api.betterdoctor.com/2016-03-01/doctors?name=${doctor}&location=or-portland&skip=0&limit=10&user_key=${apiKey}`).then(resp => {
-      console.log(docInfo);
       resp.data.forEach(function(doctor) {
-        docInfo.push([doctor.profile.first_name]);
-        docInfo.push([doctor.profile.last_name]);
-        docInfo.push([doctor.phones.number]);
-        docInfo.push([doctor.practices.accepts_new_patients]);
-        docInfo.push([doctor.practices.visit_address]);
-        docInfo.push([doctor.specialties.uid]);
+        for (let i = 0; i <resp.data.length; i ++) {
+          let doctor = resp.data[i].profile.last_name + "," + resp.data[i].profile.first_name;
+          let specialty = resp.data[i].specialties.uid;
+          // let phoneNumber = resp.data[i].phones.number;
+          let address = resp.data[i].practices.visit_address;
+        }
+        console.log(doctor);
+        // docInfo.push([doctor.profile.first_name]);
+        // docInfo.push([doctor.profile.last_name]);
+        // docInfo.push([doctor.phones.number]);
+        // docInfo.push([doctor.practices.accepts_new_patients]);
+        // docInfo.push([doctor.practices.visit_address]);
+        // docInfo.push([doctor.specialties.uid]);
       });
       return docInfo;
       })
