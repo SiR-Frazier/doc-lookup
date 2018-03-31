@@ -16,16 +16,14 @@ $(document).ready(function() {
     let doctor = $('#doctor').val();
     $('#showDoctors').text(`Here's a list of doctors near you:`)
     DoctorSearch.prototype.findDoctor(doctor)
-    $('.showDoctors').append(doctor.name);
   });
 
-  // $('#search').click(function() {
-  //   event.preventDefault();
-  //   $('.showDoctors').empty();
-  //   let issue = $('#issue').val();
-  //   $('#showDoctors').text(`Here's a list of doctors:`);
-  //   DoctorSearch.prototype.showSpecialist(issue);
-  //   $('.showDoctors').append(issue);
-  // });
+  $('#search').click(function() {
+    event.preventDefault();
+    $('.showDoctors').empty();
+    let issue = $('#issue').val();
+    $('#showDoctors').text(`Here's a list of doctors:`);
+    DoctorSearch.prototype.showSpecialist(issue);
+  });
 
 });
