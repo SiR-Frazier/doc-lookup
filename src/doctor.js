@@ -3,16 +3,16 @@ const apiKey = "9bdb5b28a2e985c4ad2c1017ac5e8887"
 
 const showDocInfo = function(docInfo) {
     return `
-      <li>
-        <div>
+      <ul>
+        <li>
           <p>Name: ${docInfo.doctorName}</p>
           <p>Bio: ${docInfo.bio}</p>
-          <p>Address: ${docInfo.address}</p>
+          <p>Address: ${docInfo.address}, ${docInfo.city}, ${docInfo.state}, ${docInfo.zip}</p>
           <p>Phone Number: ${docInfo.phoneNumber.number}</p>
           <p>Specialty: ${docInfo.specialty}</p>
           <p>Accepting new patients: ${docInfo.patients}</p>
-        </div>
-      </li>
+        </li>
+      </ul>  
     `
 }
 
@@ -34,8 +34,11 @@ export default class DoctorSearch {
               const specialty = doctor.specialties[0].name;
               const phoneNumber = doctor.practices[0].phones[0];
               const address = doctor.practices[0].visit_address.street;
+              const city = doctor.practices[0].visit_address.city;
+              const state = doctor.practices[0].visit_address.state;
+              const zip = doctor.practices[0].visit_address.zip;
               const patients = doctor.practices[0].accepts_new_patients;
-              const docInfo = ({doctorName, bio, specialty, phoneNumber, address, patients});
+              const docInfo = ({doctorName, bio, specialty, phoneNumber, address, city, state, zip, patients});
               console.log(docInfo);
               $('.showDoctors').append(showDocInfo(docInfo));
           return docInfo;
@@ -59,8 +62,11 @@ export default class DoctorSearch {
             const specialty = issue.specialties[0].name;
             const phoneNumber = issue.practices[0].phones[0];
             const address = issue.practices[0].visit_address.street;
+            const city = issue.practices[0].visit_address.city;
+            const state = issue.practices[0].visit_address.state;
+            const zip = issue.practices[0].visit_address.zip;
             const patients = issue.practices[0].accepts_new_patients;
-            const docInfo = ({doctorName, bio, specialty, phoneNumber, address, patients});
+            const docInfo = ({doctorName, bio, specialty, phoneNumber, address, city, state, zip, patients});
             $('.showDoctors').append(showDocInfo(docInfo));
         return docInfo;
         }
