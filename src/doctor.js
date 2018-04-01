@@ -5,11 +5,11 @@ const showDocInfo = function(docInfo) {
     return `
       <li>
         <div>
-          <p>${docInfo.doctorName}</p>
-          <p>${docInfo.bio}</p>
-          <p>${docInfo.address}</p>
-          <p>${docInfo.phoneNumber}</p>
-          <p>${docInfo.specialty}</p>
+          <p>Name: ${docInfo.doctorName}</p>
+          <p>Bio: ${docInfo.bio}</p>
+          <p>Address: ${docInfo.address}</p>
+          <p>Phone Number: ${docInfo.phoneNumber.number}</p>
+          <p>Specialty: ${docInfo.specialty}</p>
           <p>Accepting new patients: ${docInfo.patients}</p>
         </div>
       </li>
@@ -46,6 +46,10 @@ export default class DoctorSearch {
   }
   //**LOOK TO ADD APPEND instead of push. using hardcode for AP
   showSpecialist(issue) {
+    if (issue.length === 0) {
+      alert("please enter your medical issue")
+      return
+    }
     const docInfo = [];
     $.get(`https://api.betterdoctor.com/2016-03-01/doctors?query=${issue}&location=or-portland&user_location=37.773%2C-122.413&skip=0&limit=10&user_key=${apiKey}`).then(resp => {
       resp.data.forEach(function(issue) {
