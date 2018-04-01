@@ -1,6 +1,21 @@
 import $ from 'jquery';
 const apiKey = "9bdb5b28a2e985c4ad2c1017ac5e8887"
 
+const showDocInfo = function(docInfo) {
+    return `
+      <li>
+        <div>
+          <p>${docInfo.doctorName}</p>
+          <p>${docInfo.bio}</p>
+          <p>${docInfo.address}</p>
+          <p>${docInfo.phoneNumber}</p>
+          <p>${docInfo.specialty}</p>
+          <p>Accepting new patients: ${docInfo.patients}</p>
+        </div>
+      </li>
+    `
+}
+
 export default class DoctorSearch {
 
   // constructor() {
@@ -20,9 +35,9 @@ export default class DoctorSearch {
               const phoneNumber = doctor.practices[0].phones[0];
               const address = doctor.practices[0].visit_address.street;
               const patients = doctor.practices[0].accepts_new_patients;
-              docInfo.push({doctorName, bio, specialty, phoneNumber, address, patients});
+              const docInfo = ({doctorName, bio, specialty, phoneNumber, address, patients});
               console.log(docInfo);
-              $('.showDoctors').append(`<li>${doctorName}</li>`);
+              $('.showDoctors').append(showDocInfo(docInfo));
           return docInfo;
         }
         fail(() => alert('Unfortunately, there was an error. Please try again shortly.'))
@@ -41,13 +56,11 @@ export default class DoctorSearch {
             const phoneNumber = issue.practices[0].phones[0];
             const address = issue.practices[0].visit_address.street;
             const patients = issue.practices[0].accepts_new_patients;
-            docInfo.push({doctorName, bio, specialty, phoneNumber, address, patients});
-            console.log(docInfo);
-            $('.showDoctors').append(`<li>${doctorName}</li>`);
+            const docInfo = ({doctorName, bio, specialty, phoneNumber, address, patients});
+            $('.showDoctors').append(showDocInfo(docInfo));
         return docInfo;
-      }
-
-    })
+        }
+      })
     }).catch(() => alert('Unfortunately, there was an error. Please try again shortly.'))
   }
 }

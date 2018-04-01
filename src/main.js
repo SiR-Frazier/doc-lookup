@@ -10,7 +10,7 @@ import './styles.css';
 $(document).ready(function() {
   const doctorSearch = new DoctorSearch();
 
-  $('#search').click(function() {
+  $('#doctorSearch').click(function() {
     event.preventDefault();
     $('.showDoctors').empty();
     let doctor = $('#doctor').val();
@@ -18,7 +18,7 @@ $(document).ready(function() {
     DoctorSearch.prototype.findDoctor(doctor)
   });
 
-  $('#search').click(function() {
+  $('#issueSearch').click(function() {
     event.preventDefault();
     $('.showDoctors').empty();
     let issue = $('#issue').val();
