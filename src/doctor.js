@@ -19,11 +19,6 @@ const showDocInfo = function(docInfo) {
 
 export default class DoctorSearch {
 
-  // constructor() {
-  //   this.issue = issue;
-  //   this.doctor = doctor;
-  // }
-
   findDoctor(doctor) {
       // const apiKey = process.env.apiKey;
       if (doctor.length === 0) {
@@ -33,7 +28,10 @@ export default class DoctorSearch {
       const docInfo = [];
       $.get(`https://api.betterdoctor.com/2016-03-01/doctors?name=${doctor}&location=or-portland&skip=0&limit=10&user_key=${apiKey}`).then(resp => {
         resp.data.forEach(function(doctor) {
-            if(doctor) {
+          if (resp.data.length ===  0) {
+            alert("There are zero results.")
+            return;
+          } else {
               const doctorName = doctor.profile.last_name + "," + doctor.profile.first_name;
               const bio = doctor.profile.bio;
               const specialty = doctor.specialties[0].name;
@@ -47,8 +45,6 @@ export default class DoctorSearch {
               const docInfo = ({doctorName, bio, specialty, phoneNumber, address, city, state, zip, patients, site});
               $('.showDoctors').append(showDocInfo(docInfo));
           return docInfo;
-        } else if (resp.doctor.length === 0) {
-          return (alert("Unfortunately, there are no doctors available in your area."));
         }
         })
       }).fail(() => alert('Unfortunately, there was an error. Please try again shortly.'))
@@ -62,7 +58,10 @@ export default class DoctorSearch {
     const docInfo = [];
     $.get(`https://api.betterdoctor.com/2016-03-01/doctors?query=${issue}&location=or-portland&user_location=37.773%2C-122.413&skip=0&limit=10&user_key=${apiKey}`).then(resp => {
       resp.data.forEach(function(issue) {
-          if(issue) {
+        if (resp.data.length ===  0) {
+          alert("There are zero results.")
+          return;
+        } else {
             const doctorName = issue.profile.last_name + "," + issue.profile.first_name;
             const bio = issue.profile.bio;
             const specialty = issue.specialties[0].name;
@@ -73,11 +72,9 @@ export default class DoctorSearch {
             const zip = issue.practices[0].visit_address.zip;
             const patients = issue.practices[0].accepts_new_patients;
             const site = issue.practices[0].website;
-            const docInfo = ({doctorName, bio, specialty, phoneNumber, address, city, state, zip, patients, issue});
+            const docInfo = ({doctorName, bio, specialty, phoneNumber, address, city, state, zip, patients, site});
             $('.showDoctors').append(showDocInfo(docInfo));
         return docInfo;
-      } else if (issue.length === 0) {
-        return (alert("Unfortunately, there are no doctors available in your area."));
       }
       })
     }).fail(() => alert('Unfortunately, there was an error. Please try again shortly.'))
